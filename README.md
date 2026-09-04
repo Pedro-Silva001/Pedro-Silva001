@@ -10,7 +10,7 @@
 
 ### `Software Engineering Student`
 
-![Banner do meu Perfil](assets/banner-git.jpg)
+![Banner do meu Perfil](banner-git.jpg.jpg)
 
 <br>
 
