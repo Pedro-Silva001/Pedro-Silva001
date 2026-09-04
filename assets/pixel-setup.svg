@@ -1,77 +1,85 @@
 <svg xmlns="http://w3.org" viewBox="0 0 800 400" width="100%" height="100%">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Gradientes estáveis -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0b001a" />
       <stop offset="100%" stop-color="#25003e" />
     </linearGradient>
-    <linearGradient id="screen" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#1d0636" />
       <stop offset="100%" stop-color="#0f021f" />
     </linearGradient>
-    <style>
-      @keyframes code-scroll {
-        0% { transform: translateY(0px); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
-        100% { transform: translateY(-40px); opacity: 0; }
-      }
-      .c-line { animation: code-scroll 4s infinite linear; }
-      .c-delay { animation: code-scroll 4s infinite linear; animation-delay: 2s; }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.6; }
-        50% { opacity: 1; }
-      }
-      .p-elem { animation: pulse 3s infinite ease-in-out; }
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-6px); }
-      }
-      .setup { animation: float 6s infinite ease-in-out; }
-      @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
-      .cursor { animation: blink 1s infinite; }
-    </style>
   </defs>
 
-  <rect width="800" height="400" fill="url(#bg)" />
+  <!-- Fundo estático -->
+  <rect width="800" height="400" fill="url(#bgGrad)" />
 
-  <g class="setup">
+  <!-- Grupo Principal do Setup com Animação de Flutuação Nativa -->
+  <g>
+    <animateTransform 
+      attributeName="transform" 
+      type="translate" 
+      values="0,0; 0,-8; 0,0" 
+      dur="5s" 
+      repeatCount="indefinite" 
+      type="translate" />
+
+    <!-- Elementos do Setup -->
     <ellipse cx="400" cy="190" rx="180" ry="60" fill="#00f0ff" opacity="0.1" />
     <path d="M370,260 L430,260 L440,290 L360,290 Z" fill="#1a0c2e" stroke="#ff007f" stroke-width="1.5" />
     <rect x="350" y="290" width="100" height="10" rx="3" fill="#0d041a" stroke="#00f0ff" stroke-width="1" />
     <rect x="180" y="60" width="440" height="210" rx="12" fill="#090115" stroke="#ff007f" stroke-width="2" />
-    <rect x="190" y="70" width="420" height="190" rx="6" fill="url(#screen)" />
+    <rect x="190" y="70" width="420" height="190" rx="6" fill="url(#screenGrad)" />
 
+    <!-- Área Internas de Código -->
     <g transform="translate(210, 90)">
       <rect x="0" y="0" width="160" height="130" rx="4" fill="#080010" opacity="0.9" stroke="#00f0ff" stroke-width="1" />
-      <g class="c-line" transform="translate(10, 20)">
+      
+      <!-- Linhas rolando verticalmente -->
+      <g transform="translate(10, 20)">
+        <animateTransform 
+          attributeName="transform" 
+          type="translate" 
+          values="10,40; 10,-20" 
+          dur="4s" 
+          repeatCount="indefinite" />
         <rect x="0" y="5" width="40" height="6" rx="2" fill="#ff007f" />
         <rect x="45" y="5" width="60" height="6" rx="2" fill="#00f0ff" />
         <rect x="0" y="18" width="80" height="6" rx="2" fill="#ffffff" opacity="0.7" />
         <rect x="0" y="31" width="30" height="6" rx="2" fill="#00f0ff" />
       </g>
-      <g class="c-delay" transform="translate(10, 60)">
-        <rect x="0" y="5" width="50" height="6" rx="2" fill="#00f0ff" />
-        <rect x="55" y="5" width="35" height="6" rx="2" fill="#ff007f" />
-        <rect x="0" y="18" width="65" height="6" rx="2" fill="#ffffff" opacity="0.5" />
-      </g>
 
+      <!-- Painel de Texto Principal -->
       <rect x="180" y="0" width="220" height="130" rx="4" fill="#080010" opacity="0.9" stroke="#ff007f" stroke-width="1" />
       <text x="290" y="65" font-family="monospace" font-size="16" font-weight="bold" fill="#00f0ff" text-anchor="middle">PIXEL_SETUP</text>
-      <text x="290" y="85" font-family="monospace" font-size="11" fill="#ff007f" text-anchor="middle">> READY<tspan class="cursor">_</tspan></text>
+      
+      <text x="290" y="85" font-family="monospace" font-size="11" fill="#ff007f" text-anchor="middle">> READY
+        <!-- Cursor piscando nativamente -->
+        <tspan fill="#ff007f">_
+          <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+        </tspan>
+      </text>
     </g>
 
+    <!-- Teclado e Mouse -->
     <rect x="310" y="305" width="180" height="12" rx="3" fill="#0d041a" stroke="#ff007f" stroke-width="1" />
-    <line x1="315" y1="311" x2="485" y2="311" stroke="#00f0ff" stroke-width="2" class="p-elem" />
+    <line x1="315" y1="311" x2="485" y2="311" stroke="#00f0ff" stroke-width="2" opacity="0.8" />
     <rect x="510" y="307" width="16" height="10" rx="4" fill="#0d041a" stroke="#00f0ff" stroke-width="1" />
     
+    <!-- Caixas de Som de Neon -->
     <rect x="130" y="140" width="30" height="90" rx="4" fill="#090115" stroke="#00f0ff" stroke-width="1" />
-    <circle cx="145" cy="165" r="10" fill="#120224" stroke="#ff007f" stroke-width="1.5" class="p-elem" />
+    <circle cx="145" cy="165" r="10" fill="#120224" stroke="#ff007f" stroke-width="1.5" />
     <rect x="640" y="140" width="30" height="90" rx="4" fill="#090115" stroke="#00f0ff" stroke-width="1" />
-    <circle cx="655" cy="165" r="10" fill="#120224" stroke="#ff007f" stroke-width="1.5" class="p-elem" />
+    <circle cx="655" cy="165" r="10" fill="#120224" stroke="#ff007f" stroke-width="1.5" />
   </g>
 
-  <g fill="#00f0ff" opacity="0.5">
-    <rect x="100" y="80" width="6" height="6" class="p-elem" />
-    <rect x="700" y="120" width="8" height="8" />
+  <!-- Partículas piscantes externas -->
+  <g fill="#00f0ff">
+    <rect x="100" y="80" width="6" height="6">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
+    </rect>
+    <rect x="700" y="120" width="8" height="8">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
+    </rect>
   </g>
 </svg>
