@@ -8,9 +8,9 @@
 
 # `PEDRO-SILVA001`
 
-### `Software Engineering Student` • `Problem Solver` • `Future Tech Entrepreneur`
+### `Software Engineering Student`
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=20&duration=2800&pause=900&color=A855F7&center=true&vCenter=true&width=750&lines=Initializing+Pedro-Silva001...;Software+Engineering+%7C+2nd+Semester;Backend+%7C+Frontend+%7C+Machine+Learning;Exploring+Quantum+Computing...;Connecting+People+%2B+Software;Building+Solutions+That+Matter." alt="Typing Animation" />
+![Banner do meu Perfil](assets/banner-git.jpg)
 
 <br>
 
